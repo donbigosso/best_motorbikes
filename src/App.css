@@ -1,0 +1,56 @@
+body {
+  background-color: #282c34;
+}
+
+.brightBeckground {
+  background-color: #bac2bb;
+  min-height: 600px;
+}
+
+.textImage {
+  float: left;
+  max-height: 300px;
+  margin: 5px;
+}
+
+p {
+  font-size: 1em;
+  padding: 5px;
+}
+
+.forTablesLists {
+  padding-top: 40px;
+  padding-left: 20px;
+}
+.biggerPic {
+  width: 100%;
+}
+
+.smallPic {
+  cursor: zoom-in;
+}
+
+.navBackground {
+  width: 100%;
+  background-color: #212529;
+}
+
+.languageField {
+  height: 1.8rem;
+
+  z-index: 2;
+  float: right;
+  margin-right: 8rem;
+}
+
+.flag {
+  height: 1.8rem;
+  margin-right: 0.3rem;
+  /* border: 2px solid red; */
+}
+
+.cookieCheck {
+  color: red;
+  display: block;
+  cursor: pointer;
+}
