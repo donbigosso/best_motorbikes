@@ -7,7 +7,7 @@ import PolandFlag from "../images/poland.png";
 import GermanyFlag from "../images/germany.png";
 import BritainFlag from "../images/union-jack.png";
 
-export default function MyNavbar({ english, german, polish, ...props }) {
+export default function MyNavbar({ english, german, polish, home, ...props }) {
   const drawEnFalgFrame = () => {
     return props.language === "EN"
       ? { border: "2px solid red" }
@@ -25,7 +25,7 @@ export default function MyNavbar({ english, german, polish, ...props }) {
   };
   return (
     <Navbar bg="dark" expand="lg" variant="dark">
-      <Navbar.Brand href="/">
+      <Navbar.Brand onClick={home} className="pointer">
         <GetStringFromJSON stringID="home_label" language={props.language} />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />

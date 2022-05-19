@@ -54,3 +54,7 @@ p {
   display: block;
   cursor: pointer;
 }
+
+.pointer {
+  cursor: pointer;
+}

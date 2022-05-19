@@ -9,6 +9,8 @@ import Terms from "./pages/Terms";
 import Contact from "./pages/Contact";
 import Test from "./pages/Test";
 import React, { useState, useEffect } from "react";
+import { Animated } from "react-animated-css";
+import PageAnimation from "./components/PageAnimation";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -53,39 +55,72 @@ function App() {
   };
 
   const [language, setPageLanguage] = useState(getLanguageCookie());
-
+  const [pageToShow, setpage] = useState("terms");
   const setLanguage = (languageCode) => {
     setPageLanguage(languageCode);
     //document.cookie = "language={languageCode}";
   };
   console.log(document.cookie);
+  const generatePage = (pageName) => {
+    if (pageName === "home") {
+      return (
+        <PageAnimation>
+          <HomePage language={language} />
+        </PageAnimation>
+      );
+    } else if (pageName === "about") {
+      return (
+        <PageAnimation>
+          <AboutUs language={language} />
+        </PageAnimation>
+      );
+    } else if (pageName === "bikes") {
+      return (
+        <PageAnimation>
+          <Bikes language={language} />
+        </PageAnimation>
+      );
+    } else if (pageName === "contact") {
+      return (
+        <PageAnimation>
+          <Contact language={language} />
+        </PageAnimation>
+      );
+    } else if (pageName === "terms") {
+      return (
+        <PageAnimation>
+          <Terms language={language} />
+        </PageAnimation>
+      );
+    }
+  };
 
   return (
-    <BrowserRouter>
-      <div className="App">
-        <MyCarousel />
-        <div className="navBackground">
-          <Container>
-            <MyNavbar
-              language={language}
-              english={() => changeLanguage("EN")}
-              german={() => changeLanguage("DE")}
-              polish={() => changeLanguage("PL")}
-            />
-          </Container>
-        </div>
+    <div className="App">
+      <MyCarousel />
+      <div className="navBackground">
         <Container>
-          <Routes>
-            <Route path="/" element={<HomePage language={language} />} />
+          <MyNavbar
+            language={language}
+            english={() => changeLanguage("EN")}
+            german={() => changeLanguage("DE")}
+            polish={() => changeLanguage("PL")}
+            home={() => setpage("home")}
+            // comment added to see git's reaction
+          />
+        </Container>
+      </div>
+      <Container>
+        <div className="brightBeckground">{generatePage(pageToShow)}</div>
+        {/*}
             <Route path="/about" element={<AboutUs language={language} />} />
             <Route path="/bikes" element={<Bikes language={language} />} />
             <Route path="/terms" element={<Terms language={language} />} />
             <Route path="/contact" element={<Contact language={language} />} />
             <Route path="/test" element={<Test />} />
-          </Routes>
-        </Container>
-      </div>
-    </BrowserRouter>
+  */}
+      </Container>
+    </div>
   );
 }
 
