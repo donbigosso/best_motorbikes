@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MotorbikeCard from "../components/MotorbikeCard";
+import { Animated } from "react-animated-css";
 import axios from "axios";
 
 export default function Bikes(props) {
@@ -39,5 +40,11 @@ export default function Bikes(props) {
     }
   };
 
-  return <div>{motoList.map(createMotoCards)}</div>;
+  return (
+    <div>
+      <Animated animationIn="fadeIn" isVisible={true}>
+        {motoList.map(createMotoCards)}
+      </Animated>
+    </div>
+  );
 }
