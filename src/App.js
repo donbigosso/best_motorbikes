@@ -77,7 +77,12 @@ function App() {
 
   return (
     <div className="App">
-      <MyCarousel />
+      <MyCarousel
+        language={language}
+        english={() => changeLanguage("EN")}
+        german={() => changeLanguage("DE")}
+        polish={() => changeLanguage("PL")}
+      />
       <div className="navBackground">
         <Container>
           <MyNavbar
