@@ -7,7 +7,17 @@ import PolandFlag from "../images/poland.png";
 import GermanyFlag from "../images/germany.png";
 import BritainFlag from "../images/union-jack.png";
 
-export default function MyNavbar({ english, german, polish, home, ...props }) {
+export default function MyNavbar({
+  english,
+  german,
+  polish,
+  home,
+  about,
+  bikes,
+  contact,
+  terms,
+  ...props
+}) {
   const drawEnFalgFrame = () => {
     return props.language === "EN"
       ? { border: "2px solid red" }
@@ -31,7 +41,7 @@ export default function MyNavbar({ english, german, polish, home, ...props }) {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
-          <Nav.Link href="/about">
+          <Nav.Link className="pointer" onClick={about}>
             <GetStringFromJSON
               stringID="about_label"
               language={props.language}
@@ -47,20 +57,20 @@ export default function MyNavbar({ english, german, polish, home, ...props }) {
             }
             id="basic-nav-dropdown"
           >
-            <NavDropdown.Item href="/bikes">
+            <NavDropdown.Item className="pointer" onClick={bikes}>
               <GetStringFromJSON
                 stringID="rental_our_bikes"
                 language={props.language}
               />
             </NavDropdown.Item>
-            <NavDropdown.Item href="/terms">
+            <NavDropdown.Item className="pointer" onClick={terms}>
               <GetStringFromJSON
                 stringID="rental_terms"
                 language={props.language}
               />
             </NavDropdown.Item>
           </NavDropdown>
-          <Nav.Link href="/contact">
+          <Nav.Link className="pointer" onClick={contact}>
             <GetStringFromJSON
               stringID="contact_label"
               language={props.language}

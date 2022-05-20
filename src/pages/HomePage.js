@@ -5,7 +5,7 @@ import about_us from "../images/about_us.jpg";
 
 export default function HomePage(props) {
   return (
-    <div>
+    <div className="brightBeckground">
       <h2>
         <GetStringFromJSON stringID="home_headline" language={props.language} />
       </h2>

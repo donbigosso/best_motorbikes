@@ -7,12 +7,12 @@ import AboutUs from "./pages/AboutUs";
 import Bikes from "./pages/Bikes";
 import Terms from "./pages/Terms";
 import Contact from "./pages/Contact";
-import Test from "./pages/Test";
+
 import React, { useState, useEffect } from "react";
-import { Animated } from "react-animated-css";
+/* import { Animated } from "react-animated-css";
 import PageAnimation from "./components/PageAnimation";
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom"; */
 
 function App() {
   const setCookie = (cookieName, cvalue, exDays) => {
@@ -55,7 +55,7 @@ function App() {
   };
 
   const [language, setPageLanguage] = useState(getLanguageCookie());
-  const [pageToShow, setpage] = useState("terms");
+  const [pageToShow, setpage] = useState("home");
   const setLanguage = (languageCode) => {
     setPageLanguage(languageCode);
     //document.cookie = "language={languageCode}";
@@ -63,35 +63,15 @@ function App() {
   console.log(document.cookie);
   const generatePage = (pageName) => {
     if (pageName === "home") {
-      return (
-        <PageAnimation>
-          <HomePage language={language} />
-        </PageAnimation>
-      );
+      return <HomePage language={language} />;
     } else if (pageName === "about") {
-      return (
-        <PageAnimation>
-          <AboutUs language={language} />
-        </PageAnimation>
-      );
+      return <AboutUs language={language} />;
     } else if (pageName === "bikes") {
-      return (
-        <PageAnimation>
-          <Bikes language={language} />
-        </PageAnimation>
-      );
+      return <Bikes language={language} />;
     } else if (pageName === "contact") {
-      return (
-        <PageAnimation>
-          <Contact language={language} />
-        </PageAnimation>
-      );
+      return <Contact language={language} />;
     } else if (pageName === "terms") {
-      return (
-        <PageAnimation>
-          <Terms language={language} />
-        </PageAnimation>
-      );
+      return <Terms language={language} />;
     }
   };
 
@@ -106,19 +86,15 @@ function App() {
             german={() => changeLanguage("DE")}
             polish={() => changeLanguage("PL")}
             home={() => setpage("home")}
-            // comment added to see git's reaction
+            about={() => setpage("about")}
+            bikes={() => setpage("bikes")}
+            terms={() => setpage("terms")}
+            contact={() => setpage("contact")}
           />
         </Container>
       </div>
       <Container>
-        <div className="brightBeckground">{generatePage(pageToShow)}</div>
-        {/*}
-            <Route path="/about" element={<AboutUs language={language} />} />
-            <Route path="/bikes" element={<Bikes language={language} />} />
-            <Route path="/terms" element={<Terms language={language} />} />
-            <Route path="/contact" element={<Contact language={language} />} />
-            <Route path="/test" element={<Test />} />
-  */}
+        <div>{generatePage(pageToShow)}</div>
       </Container>
     </div>
   );

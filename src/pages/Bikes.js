@@ -39,5 +39,5 @@ export default function Bikes(props) {
     }
   };
 
-  return <>{motoList.map(createMotoCards)}</>;
+  return <div>{motoList.map(createMotoCards)}</div>;
 }
