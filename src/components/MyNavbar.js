@@ -15,52 +15,50 @@ export default function MyNavbar({
   ...props
 }) {
   return (
-    <Animated animationIn="fadeIn" isVisible={true}>
-      <Navbar bg="dark" expand="lg" variant="dark">
-        <Navbar.Brand onClick={home} className="pointer">
-          <GetStringFromJSON stringID="home_label" language={props.language} />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link className="pointer" onClick={about}>
-              <GetStringFromJSON
-                stringID="about_label"
-                language={props.language}
-              />
-            </Nav.Link>
+    <Navbar bg="dark" expand="lg" variant="dark">
+      <Navbar.Brand onClick={home} className="pointer">
+        <GetStringFromJSON stringID="home_label" language={props.language} />
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="me-auto">
+          <Nav.Link className="pointer" onClick={about}>
+            <GetStringFromJSON
+              stringID="about_label"
+              language={props.language}
+            />
+          </Nav.Link>
 
-            <NavDropdown
-              title={
-                <GetStringFromJSON
-                  stringID="rental_label"
-                  language={props.language}
-                />
-              }
-              id="basic-nav-dropdown"
-            >
-              <NavDropdown.Item className="pointer" onClick={bikes}>
-                <GetStringFromJSON
-                  stringID="rental_our_bikes"
-                  language={props.language}
-                />
-              </NavDropdown.Item>
-              <NavDropdown.Item className="pointer" onClick={terms}>
-                <GetStringFromJSON
-                  stringID="rental_terms"
-                  language={props.language}
-                />
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link className="pointer" onClick={contact}>
+          <NavDropdown
+            title={
               <GetStringFromJSON
-                stringID="contact_label"
+                stringID="rental_label"
                 language={props.language}
               />
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-    </Animated>
+            }
+            id="basic-nav-dropdown"
+          >
+            <NavDropdown.Item className="pointer" onClick={bikes}>
+              <GetStringFromJSON
+                stringID="rental_our_bikes"
+                language={props.language}
+              />
+            </NavDropdown.Item>
+            <NavDropdown.Item className="pointer" onClick={terms}>
+              <GetStringFromJSON
+                stringID="rental_terms"
+                language={props.language}
+              />
+            </NavDropdown.Item>
+          </NavDropdown>
+          <Nav.Link className="pointer" onClick={contact}>
+            <GetStringFromJSON
+              stringID="contact_label"
+              language={props.language}
+            />
+          </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 }
